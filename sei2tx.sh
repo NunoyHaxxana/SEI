@@ -96,7 +96,7 @@ seq=$(seid query account ${seiwallet} -o json | jq -r .sequence)
 
 sleep 3
 
-seid tx sign /root/seiex/gen_tx.json -s $seq -a $ACC --offline \
+seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from ${seiwallet} --chain-id atlantic-1 \
 --output-document /root/seiex/txs.json
 
