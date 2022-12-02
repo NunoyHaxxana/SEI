@@ -80,7 +80,8 @@ echo '{
     }
   },
   "signatures": []
-}' > /root/seiex/gen_tx.json
+
+}' > $HOME/seiex/gen_2tx.json
 
 
 
