@@ -2,8 +2,7 @@
 
 read -p "Enter sei wallet address: " seiwallet
 
-sudo tee /root/seiex/gen_tx.json > /dev/null << EOF
-{
+echo '{
   "body": {
     "messages": [
       {
@@ -81,8 +80,9 @@ sudo tee /root/seiex/gen_tx.json > /dev/null << EOF
     }
   },
   "signatures": []
-}
-EOF
+}' > /root/seiex/gen_tx.json
+
+
 
 sleep 3
 
