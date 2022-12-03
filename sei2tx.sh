@@ -299,7 +299,7 @@ LongLong
 Createwallet
 CreatTX
 Broadcast
-break
+
 ;;
 
 "LONGSHORT")
@@ -308,7 +308,7 @@ LongShort
 Createwallet
 CreatTX
 Broadcast
-break
+
 ;;
 
 
@@ -318,7 +318,7 @@ SHORTSHORT
 Createwallet
 CreatTX
 Broadcast
-break
+
 ;;
 
 
@@ -326,7 +326,7 @@ break
             echo -e '\e[1m\e[32mYou choose Fix error sequence...\e[0m' && sleep 1
 CreatTX
 Broadcast
-break
+
 ;;
 
 
