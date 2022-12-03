@@ -74,13 +74,12 @@ echo '{
           "amount": "0"
         }
       ],
-      "gas_limit": "0",
+      "gas_limit": "300000",
       "payer": "",
       "granter": ""
     }
   },
   "signatures": []
-
 }' > $HOME/seiex/gen_2tx.json
 
 
@@ -91,19 +90,20 @@ sed -i s/SEIWALLET/${NSEIWALLET}/ $HOME/seiex/gen_2tx.json
 sleep 3
 
 ACC=$(seid query account $seiwallet -o json | jq -r .account_number)
-ACC=$(seid q account $seiwallet -o json --node https://sei-testnet-rpc.brocha.in:443 | jq -r .account_number)
+
 
 sleep 3
 
 
 seq=$(seid query account $seiwallet  -o json | jq -r .sequence)
-seq=$(seid q account $seiwallet -o json --node https://sei-testnet-rpc.brocha.in:443 | jq -r .sequence)
+
 
 sleep 3
 
 seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --output-document /root/seiex/txs.json
+
 
 sleep 3
 
