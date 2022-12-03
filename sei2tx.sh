@@ -271,7 +271,7 @@ seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 
 
 function CreatTXNOT {
-read -p "Enter sei wallet address: " sequenceid
+read -p "Enter expected error number: " sequenceid
 seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --sequence ${sequenceid} \
