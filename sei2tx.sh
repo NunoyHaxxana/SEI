@@ -324,7 +324,7 @@ Broadcast
 
 "Fix error sequence")
             echo -e '\e[1m\e[32mYou choose Fix error sequence...\e[0m' && sleep 1
-CreatTX
+CreatTXNOT
 Broadcast
 
 ;;
