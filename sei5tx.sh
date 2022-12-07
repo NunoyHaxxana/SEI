@@ -451,14 +451,19 @@ seid tx broadcast $HOME/seiex/txs.json
 
 
 function AutofixSequence {
-Sequence_ID=$(seid tx broadcast $HOME/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
+if [[ `seid tx broadcast /root/seiex/txs.json |grep "account sequence mismatch, expected" |wc -l` =~ "1" ]]; then
+sleep 1
+  Sequence_ID=$(seid tx broadcast $HOME/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
 sleep 1
 seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --sequence ${Sequence_ID} \
 --output-document $HOME/seiex/txs.json
 sleep 1
-seid tx broadcast $HOME/seiex/txs.json
+seid tx broadcast $HOME/seiex/txs.json |grep "txhash" 
+else
+  seid tx broadcast /root/seiex/txs.json |grep "txhash" 
+fi
 }
 
 
@@ -477,33 +482,43 @@ do
 "5TXs")
             echo -e '\e[1m\e[32mYou choose Place multiple orders 5txs...\e[0m' && sleep 1
 LongLong_1
+echo ""
+echo -e '\e[1m\e[32mPlace multiple orders Long & Long...\e[0m' && sleep 1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 sleep 1
 
 LongShort_2
+echo ""
+echo -e '\e[1m\e[32mPlace multiple orders Long & Short...\e[0m' && sleep 1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 sleep 1
 
 SHORTSHORT_3
+echo ""
+echo -e '\e[1m\e[32mPlace multiple orders Short & short...\e[0m' && sleep 1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 sleep 1
 
 LongLong_4
+echo ""
+echo -e '\e[1m\e[32mPlace multiple orders Long & Long...\e[0m' && sleep 1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 sleep 1
 
 LongShort_5
+echo ""
+echo -e '\e[1m\e[32mPlace multiple orders Long & Short...\e[0m' && sleep 1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 sleep 1
 ;;
     
@@ -530,24 +545,10 @@ Broadcast
 
 "SHORTSHORT")
             echo -e '\e[1m\e[32mYou choose Place multiple orders SHORT SHORT...\e[0m' && sleep 1
-SHORTSHORT
+SHORTSHORT_3
 Createwallet
 CreatTX
-if [[ `seid tx broadcast /root/seiex/txs.json |grep "account sequence mismatch, expected" |wc -l` =~ "1" ]]; then
-echo "Found expected"
-sleep 1
-  Sequence_ID=$(seid tx broadcast $HOME/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
-sleep 1
-seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
---from $seiwallet --chain-id atlantic-1 \
---sequence ${Sequence_ID} \
---output-document $HOME/seiex/txs.json
-sleep 1
-seid tx broadcast $HOME/seiex/txs.json |grep "txhash" 
-else
-echo "Tx ok"
-  seid tx broadcast /root/seiex/txs.json |grep "txhash" 
-fi
+AutofixSequence
 
 ;;
 
