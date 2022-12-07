@@ -428,37 +428,37 @@ seq=$(seid query account $seiwallet  -o json | jq -r .sequence)
 
 
 function CreatTX {
-seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
+seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
---output-document /root/seiex/txs.json
+--output-document $HOME/seiex/txs.json
 }
 
 
 function CreatTXNOT {
 read -p "Enter expected error number: " sequenceid
-seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
+seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --sequence ${sequenceid} \
---output-document /root/seiex/txs.json
+--output-document $HOME/seiex/txs.json
 }
 
 
 
 function Broadcast {
-seid tx broadcast /root/seiex/txs.json
+seid tx broadcast $HOME/seiex/txs.json
 }
 
 
 
 function AutofixSequence {
-Sequence_ID=$(seid tx broadcast /root/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
+Sequence_ID=$(seid tx broadcast $HOME/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
 sleep 1
-seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
+seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --sequence ${Sequence_ID} \
---output-document /root/seiex/txs.json
+--output-document $HOME/seiex/txs.json
 sleep 1
-seid tx broadcast /root/seiex/txs.json
+seid tx broadcast $HOME/seiex/txs.json
 }
 
 
