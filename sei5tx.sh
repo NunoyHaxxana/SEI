@@ -472,7 +472,7 @@ fi
 
 
 PS3='Please enter your choice (input your option number and press enter): '
-options=("5TXs" "LONGLONG" "LONGSHORT" "SHORTSHORT" "Fix error sequence" "Quit")
+options=("5TXs" "LONGLONG" "LONGSHORT" "SHORTSHORT" "Quit")
 
 
 select opt in "${options[@]}"
@@ -526,19 +526,19 @@ sleep 1
     
 "LONGLONG")
             echo -e '\e[1m\e[32mYou choose Place multiple orders LONG LONG...\e[0m' && sleep 1
-LongLong
+LongLong_1
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 
 ;;
 
 "LONGSHORT")
             echo -e '\e[1m\e[32mYou choose Place multiple orders LONG SHORT...\e[0m' && sleep 1
-LongShort
+LongShort_2
 Createwallet
 CreatTX
-Broadcast
+AutofixSequence
 
 ;;
 
@@ -550,24 +550,8 @@ Createwallet
 CreatTX
 AutofixSequence
 
-;;
 
 
-"Fix error sequence")
-            echo -e '\e[1m\e[32mYou choose Fix error sequence...\e[0m' && sleep 1
-CreatTXNOT
-Broadcast
-
-;;
-
-
-"Auto Fix error sequence")
-            echo -e '\e[1m\e[32mYou choose Fix error sequence...\e[0m' && sleep 1
-SHORTSHORT
-Createwallet
-CreatTX
-Broadcast
-AutofixSequence
 
 ;;
 
