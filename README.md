@@ -12,6 +12,10 @@ wget -O sei.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/sei/s
 source $HOME/.bash_profile && seid config node https://sei-testnet-rpc.brocha.in:443
 ```
 
+ทำการ import กระเป๋า sei เข้ามา โดยรันคำสั่งด้านล่าง และ นำ seed มากรอก
+```
+seid keys add wallet --recover
+```
 
 ## Download Script ยิง multiple orders จาก
 
