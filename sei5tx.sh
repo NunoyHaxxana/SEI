@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -p "Enter sei wallet address: " seiwallet
-
+source $HOME/.bash_profile
 
 
 function LongLong_1 {
