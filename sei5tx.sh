@@ -533,8 +533,21 @@ Broadcast
 SHORTSHORT
 Createwallet
 CreatTX
-Broadcast
-AutofixSequence
+if [[ `seid tx broadcast /root/seiex/txs.json |grep "account sequence mismatch, expected" |wc -l` =~ "1" ]]; then
+echo "Found expected"
+sleep 1
+  Sequence_ID=$(seid tx broadcast $HOME/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
+sleep 1
+seid tx sign $HOME/seiex/gen_2tx.json -s $seq -a $ACC --offline \
+--from $seiwallet --chain-id atlantic-1 \
+--sequence ${Sequence_ID} \
+--output-document $HOME/seiex/txs.json
+sleep 1
+seid tx broadcast $HOME/seiex/txs.json |grep "txhash" 
+else
+echo "Tx ok"
+  seid tx broadcast /root/seiex/txs.json |grep "txhash" 
+fi
 
 ;;
 
