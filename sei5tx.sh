@@ -499,7 +499,7 @@ sleep 1
 
 SHORTSHORT_3
 echo ""
-echo -e '\e[1m\e[32mPlace multiple orders Short & short...\e[0m' && sleep 1
+echo -e '\e[1m\e[32mPlace multiple orders Short & Short...\e[0m' && sleep 1
 Createwallet
 CreatTX
 AutofixSequence
