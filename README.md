@@ -1,13 +1,24 @@
-Script ยิง multiple orders
+# Script ยิง multiple orders
 
-
-
-Download Script จาก
+## อันดับแรกต้องติดตั้ง sei node ก่อน สามารถติดตั้งผ่าน script 
 
 ```
-wget -q -O sei2tx.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/sei2tx.sh && chmod +x sei2tx.sh && ./sei2tx.sh
+wget -O sei.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/sei/sei.sh && chmod +x sei.sh && ./sei.sh
 ```
-Script จะมีด้วยกันทั้งหมด 5 เมนู
+
+หลังจากติดตั้ง node เรียบร้อยแล้วให้ join network
+
+```
+source $HOME/.bash_profile && seid config node https://sei-testnet-rpc.brocha.in:443
+```
+
+
+## Download Script ยิง multiple orders จาก
+
+```
+wget -q -O sei5tx.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/sei5tx.sh && chmod +x sei5tx.sh && ./sei5tx.sh
+```
+### Script จะมีด้วยกันทั้งหมด 5 เมนู
 
 1) 5TXs
 2) LONGLONG
@@ -23,14 +34,15 @@ Script จะมีด้วยกันทั้งหมด 5 เมนู
 
 เมนูที่ 5 คือ ออกจาก script 
 
-1. กรอก sei address ของตัวเองหลังจาก script เริ่มทำงาน 
+### 1. กรอก sei address ของตัวเองหลังจาก script เริ่มทำงาน 
 ![image](https://user-images.githubusercontent.com/83507970/205413847-bc1ec700-d239-4077-a78e-1b2ab9c4509f.png)
 
 
 
 
 
-2. เลือกรายการที่ต้องการจะทำ
+### 2. เลือกรายการที่ต้องการจะทำ 
+ตัวอย่างด้านล่างคือ กดเลือก ข้อ 1 ซึ่ง sciprt จะสร้าง Txs ให้เราจนครบ 5 ครั้ง สามารถนำ TX ที่ได้ไปดูบน https://sei.explorers.guru/ ได้เลย
 
 ![2022-12-07_17-48-07](https://user-images.githubusercontent.com/83507970/206159486-21f88161-bc18-4578-b8d5-d944836b2cd1.gif)
 
@@ -38,6 +50,7 @@ Script จะมีด้วยกันทั้งหมด 5 เมนู
 
 
 หลังจากทำครบ 5 tx แล้วให้กด 5 เพื่อออกจาก scrip ได้เลย
+หากมี error ทำให้ไม่สามารถรันได้ครบ 5 order ก็ให้เลือกใช้ เมนู 2 - 4 ได้นะ รวมกันให้คครบ 5 รายการ
 
 
 หากติดปัญหาการใช้งานให้ tag Nunuynungning#8021 ที่ห้อง sei thailand แล้วถามได้เลย
