@@ -1,4 +1,4 @@
-# Script ยิง multiple orders
+# ขั้นตอนการสร้าง multiple orders จาก 1TX
 
 ## อันดับแรกต้องติดตั้ง sei node ก่อน สามารถติดตั้งผ่าน script 
 
