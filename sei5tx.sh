@@ -288,10 +288,12 @@ seid tx broadcast /root/seiex/txs.json
 
 function AutofixSequence {
 Sequence_ID=$(seid tx broadcast /root/seiex/txs.json |grep expected  |awk -F"," '{print $2}' |awk -F" " '{print $2}')
+sleep 1
 seid tx sign /root/seiex/gen_2tx.json -s $seq -a $ACC --offline \
 --from $seiwallet --chain-id atlantic-1 \
 --sequence ${Sequence_ID} \
 --output-document /root/seiex/txs.json
+sleep 1
 seid tx broadcast /root/seiex/txs.json
 }
 
@@ -332,6 +334,7 @@ SHORTSHORT
 Createwallet
 CreatTX
 Broadcast
+AutofixSequence
 
 ;;
 
