@@ -3,7 +3,22 @@
 ## อันดับแรกต้องติดตั้ง sei node ก่อน สามารถติดตั้งผ่าน script 
 
 ```
+sudo su
+```
+
+
+```
 wget -O sei.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/sei/sei.sh && chmod +x sei.sh && ./sei.sh
+```
+
+```
+cd $HOME
+rm -rf sei-chain
+git clone https://github.com/sei-protocol/sei-chain.git
+cd sei-chain
+git checkout 1.2.2beta-postfix
+make install
+seid version
 ```
 
 หลังจากติดตั้ง node เรียบร้อยแล้วให้ join network
