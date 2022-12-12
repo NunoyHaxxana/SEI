@@ -37,6 +37,13 @@ seid keys add wallet --recover
 ```
 wget -q -O sei5tx.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/sei5tx.sh && chmod +x sei5tx.sh && ./sei5tx.sh
 ```
+
+or
+
+```
+wget -q -O 5TX.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/5TX.sh && chmod +x 5TX.sh && ./5TX.sh
+```
+
 ### Script จะมีด้วยกันทั้งหมด 5 เมนู
 
 1) 5TXs
