@@ -11,6 +11,8 @@ sudo su
 wget -O sei.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/sei/sei.sh && chmod +x sei.sh && ./sei.sh
 ```
 
+
+## ทำการ update node เป็นตัวล่าสุด
 ```
 cd $HOME
 rm -rf sei-chain
@@ -18,7 +20,6 @@ git clone https://github.com/sei-protocol/sei-chain.git
 cd sei-chain
 git checkout 1.2.2beta-postfix
 make install
-seid version
 ```
 
 หลังจากติดตั้ง node เรียบร้อยแล้วให้ join network
@@ -38,11 +39,13 @@ seid keys add wallet --recover
 wget -q -O sei5tx.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/sei5tx.sh && chmod +x sei5tx.sh && ./sei5tx.sh
 ```
 
-or
+หรือใช้ตัวนี้ก็ได้ หากใช้ตัวบนแล้ว ไม่พบ TX บน explorer 
 
 ```
 wget -q -O 5TX.sh https://raw.githubusercontent.com/NunoyHaxxana/SEI/main/5TX.sh && chmod +x 5TX.sh && ./5TX.sh
 ```
+
+
 
 ### Script จะมีด้วยกันทั้งหมด 5 เมนู
 
