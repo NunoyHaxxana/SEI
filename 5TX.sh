@@ -1,5 +1,10 @@
 #!/bin/bash
 
+mkdir -p $HOME/seiex/
+cd $HOME/seiex/
+echo -n > gen_2tx.json
+echo -n > txs.json
+
 read -p "Enter sei wallet address: " seiwallet
 source $HOME/.bash_profile
 
